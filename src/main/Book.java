@@ -25,7 +25,7 @@ public class Book extends Product implements Buyable
 	@Override
 	public long getInvestment()
 	{
-		return author.salary;
+		return author.getSalary();
 	}
 
 	public String toString()
