@@ -1,5 +1,9 @@
 package main;
 
+import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
+import java.net.Socket;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -73,6 +77,21 @@ public class RentManager
 		System.out.println(movie1 + "\n");
 		System.out.println(movie2 + "\n");
 		System.out.println(buyableIncome(buyables));
+		
+		try
+		{
+			Socket clientSocket = new Socket("localhost", 9999);
+			System.out.println("Connection successful!");
+			ObjectOutputStream outToServer = new ObjectOutputStream(clientSocket.getOutputStream());
+			ObjectInputStream inFromServer = new ObjectInputStream(clientSocket.getInputStream());
+			
+			clientSocket.close();
+			
+		}
+		catch (IOException e)
+		{
+			e.printStackTrace();
+		}
 
 	}
 
@@ -85,5 +104,7 @@ public class RentManager
 		}
 		return result;
 	}
-
+	
+	
+	
 }

@@ -4,6 +4,11 @@ import java.util.List;
 
 public class Movie extends Product implements Buyable
 {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -7734444144025391898L;
+	
 	Genre genre;
 	long duration;
 	double rate;

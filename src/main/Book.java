@@ -2,6 +2,10 @@ package main;
 
 public class Book extends Product implements Buyable
 {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 7196380723373465321L;
 	Person author;
 	
 	public Book(String title, Person person, Person author)

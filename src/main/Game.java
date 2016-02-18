@@ -1,10 +1,16 @@
 package main;
 
+import java.io.Serializable;
 import java.util.List;
 
-public class Game extends Product implements Buyable
+public class Game extends Product implements Buyable, Serializable
 {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 9030686765397901473L;
+	
 	boolean preOrdered;
 	List<Person> staff;
 	int price;
