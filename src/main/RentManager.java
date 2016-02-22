@@ -1,5 +1,6 @@
 package main;
 
+import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
@@ -80,10 +81,12 @@ public class RentManager
 		
 		try
 		{
-			Socket clientSocket = new Socket("localhost", 9999);
+			Socket clientSocket = new Socket("localhost", 8888);
 			System.out.println("Connection successful!");
-			ObjectOutputStream outToServer = new ObjectOutputStream(clientSocket.getOutputStream());
-			ObjectInputStream inFromServer = new ObjectInputStream(clientSocket.getInputStream());
+			ObjectOutputStream clientOutputStream = new ObjectOutputStream(clientSocket.getOutputStream());
+			ObjectInputStream clientInputStream = new ObjectInputStream(clientSocket.getInputStream());
+			FileOutputStream fileOut = new FileOutputStream("sample.ser", true);
+            ObjectOutputStream out = new ObjectOutputStream(fileOut);
 			
 			clientSocket.close();
 			
